@@ -1,0 +1,23 @@
+pipeline {
+    agent {
+      node {    
+      label 'awswk13-slave' 
+     }
+    }
+    stages{
+        stage('stage1') {
+            input {
+                messsage "can we processed"
+                ok "yes"
+                submitter "Digital vars"
+                parameters {
+                    string(name: 'PERSON', defaultvalue: 'Digitalvars', description: 'Member')
+                }
+            }
+            steps {
+                echo "${PERSON}, is procedding"
+            }
+        }
+    } 
+
+}
